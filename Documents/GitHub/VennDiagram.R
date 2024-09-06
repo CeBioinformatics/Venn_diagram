@@ -1,24 +1,24 @@
-# Establecer la semilla
+# Set seed for reproducibility
 set.seed(20240902)
 
-# Crear un vector de genes de "gene1" a "gene1000"
+# Create a vector of genes from "gene1" to "gene1000"
 genes <- paste("gene", 1:1000, sep = "")
 
-# Crear una lista de vectores
+# Create a list of gene sets
 x <- list(
-  Corazon = sample(genes, 250),
-  Higado = sample(genes, 500),  
-  Cerebro = sample(genes, 400),
-  Riñon = sample(genes, 375)
+  Heart = sample(genes, 250),
+  Liver = sample(genes, 500),  
+  Brain = sample(genes, 400),
+  Kidney = sample(genes, 375)
 )
 
-# Instalar y cargar la librería ggvenn
+# Install and load the ggvenn library
 if (!requireNamespace("ggvenn", quietly = TRUE)) {
   install.packages("ggvenn")
 }
 library(ggvenn)
 
-# Crear el diagrama de Venn
+# Create the Venn diagram
 ggvenn(
   x,
   fill_color = c("blue", "red", "green", "yellow"),
